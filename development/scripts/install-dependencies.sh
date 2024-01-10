@@ -15,3 +15,22 @@ bench set-config -g redis_socketio redis://redis:6379  # For production redis://
 
 # set the config to developer mode
 bench set-config -g developer_mode true
+
+# Automatically create a new site
+bench new-site --no-mariadb-socket development.localhost
+
+# Install ERPNEXT
+bench get-app --branch develop --resolve-deps erpnext
+bench --site development.localhost install-app erpnext
+
+#Install HRMS
+bench get-app hrms
+bench --site development.localhost install-app hrms
+
+#Install Ecommerce Integrations
+bench get-app ecommerce_integrations --branch develop --resolve-deps
+bench --site development.localhost install-app ecommerce_integrations
+
+#Install Wiki
+bench get-app https://github.com/frappe/wiki
+bench --site development.localhost install-app wiki
