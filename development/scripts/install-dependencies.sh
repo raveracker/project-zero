@@ -28,7 +28,7 @@ bench get-app hrms
 bench --site development.localhost install-app hrms
 
 #Install Ecommerce Integrations
-bench get-app ecommerce_integrations --branch develop --resolve-deps
+bench get-app ecommerce_integrations --branch main --resolve-deps
 bench --site development.localhost install-app ecommerce_integrations
 
 #Install Wiki
